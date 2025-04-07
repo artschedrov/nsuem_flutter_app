@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/components/menu_sidebar_tile.dart';
-import 'package:food_app/pages/login_page.dart';
 
 import 'login_register_switcher.dart';
 
