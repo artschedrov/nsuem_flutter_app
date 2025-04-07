@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/components/my_button.dart';
 
+
+import '../components/my_button.dart';
 import '../components/textfield.dart';
 
-class LoginPage extends StatefulWidget{
+class RegisterPage extends StatefulWidget{
   final void Function()? onTap;
-  LoginPage({super.key, required this.onTap});
+  const RegisterPage({super.key, required this.onTap});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController cofirmPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -29,43 +31,50 @@ class _LoginPageState extends State<LoginPage> {
           // ),
           const SizedBox(height: 25),
           Text(
-            "Food order app",
+            "Создание аккаунта",
             style: TextStyle(
-              fontSize: 16,
-              color: Theme.of(context).colorScheme.inversePrimary
+                fontSize: 16,
+                color: Theme.of(context).colorScheme.inversePrimary
             ),
           ),
           const SizedBox(height: 25),
           MyTextField(
             controller: emailController,
-            hintText: "Email",
+            hintText: "Эл.почта",
             obscureText: false,
           ),
 
           const SizedBox(height: 10),
           MyTextField(
             controller: passwordController,
-            hintText: "Password",
+            hintText: "Пароль",
+            obscureText: true,
+          ),
+
+          const SizedBox(height: 10),
+          MyTextField(
+            controller: cofirmPasswordController,
+            hintText: "Подтвердить пароль",
             obscureText: true,
           ),
           const SizedBox(height: 25,),
-          MyButton(text: "Вход", onTap: () {}),
+          MyButton(text: "Зарегистрироваться", onTap: () {}),
           const SizedBox(height: 25),
 
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Нет аккаунта? ",
+                "Уже есть аккаунт? ",
                 style: TextStyle(
-                  color: Theme.of(context).colorScheme.inversePrimary
+                    color: Theme.of(context).colorScheme.inversePrimary
                 ),
               ),
               const SizedBox(width: 4),
               GestureDetector(
                 onTap: widget.onTap,
                 child: Text(
-                    "Зарегистрироваться",
+                  "Войти",
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.inversePrimary,
                     fontWeight: FontWeight.bold,

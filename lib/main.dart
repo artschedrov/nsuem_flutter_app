@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/pages/login_page.dart';
+import 'package:food_app/components/login_register_switcher.dart';
 import 'package:provider/provider.dart';
 import 'package:food_app/themes/theme_provider.dart';
 
@@ -19,9 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: LoginPage(
-        onTap: () {},
-      ),
+      home: const LoginRegisterSwitcher(),
       theme: Provider.of<ThemeProvider>(context).themeData
     );
   }
