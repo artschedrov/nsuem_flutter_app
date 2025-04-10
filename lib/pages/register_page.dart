@@ -24,11 +24,6 @@ class _RegisterPageState extends State<RegisterPage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // Icon(
-          //   Icons.lock_open_rounded,
-          //   size:100,
-          //   color: Theme.of(context).colorScheme.inversePrimary,
-          // ),
           const SizedBox(height: 25),
           Text(
             "Создание аккаунта",
