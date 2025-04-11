@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/components/curr_location.dart';
 import 'package:food_app/components/delivery_description.dart';
+import 'package:food_app/components/food_tab_bar.dart';
 import 'package:food_app/components/menu_sidebar.dart';
 import '../components/sliver_bar.dart';
 
@@ -11,7 +12,21 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 2, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +35,7 @@ class _HomePageState extends State<HomePage> {
       body: NestedScrollView(
         headerSliverBuilder: (context,innerBoxIsScrolled) => [
           NewSliverBar(
-            title: Text("title"),
+            title: FoodTabBar(tabController: _tabController),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -29,14 +44,26 @@ class _HomePageState extends State<HomePage> {
                   endIndent: 25,
                   color: Theme.of(context).colorScheme.secondary,
                 ),
-                const CurrLocation(),
+                CurrLocation(),
                 const DeliveryDescription()
               ],
             ),
           )
         ],
-      body: Container(color: Colors.blue),
-      ),
+        body: TabBarView(
+          controller: _tabController,
+          children: [
+            ListView.builder(
+                itemCount: 5,
+                itemBuilder: (context, index) => Text("tab items"),
+            ),
+            ListView.builder(
+              itemCount: 5,
+              itemBuilder: (context, index) => Text("tab items"),
+            ),
+          ],
+        ),
+      )
     );
   }
 }
