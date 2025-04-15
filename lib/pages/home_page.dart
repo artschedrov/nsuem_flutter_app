@@ -3,6 +3,9 @@ import 'package:food_app/components/curr_location.dart';
 import 'package:food_app/components/delivery_description.dart';
 import 'package:food_app/components/food_tab_bar.dart';
 import 'package:food_app/components/menu_sidebar.dart';
+import 'package:food_app/models/food_model.dart';
+import 'package:food_app/models/restaurant_model.dart';
+import 'package:provider/provider.dart';
 import '../components/sliver_bar.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,13 +21,34 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 2, vsync: this);
+    _tabController = TabController(length: FoodCategory.values.length, vsync: this);
   }
 
   @override
   void dispose() {
     _tabController.dispose();
     super.dispose();
+  }
+
+  List<FoodModel> _filterMenuByCategory(FoodCategory category, List<FoodModel> fullMenu) {
+    return fullMenu.where((food) => food.category == category).toList();
+  }
+
+  List<Widget> getFoodInThisCategory(List<FoodModel> fullMenu) {
+    return FoodCategory.values.map((category) {
+      List<FoodModel> categoryMenu = _filterMenuByCategory(category, fullMenu);
+
+      return ListView.builder(
+          itemCount: categoryMenu.length,
+          physics: const NeverScrollableScrollPhysics(),
+          padding: EdgeInsets.zero,
+          itemBuilder: (context, index) {
+            return ListTile(
+              title: Text(categoryMenu[index].name),
+            );
+          },
+      );
+    }).toList();
   }
 
   @override
@@ -50,19 +74,12 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
             ),
           )
         ],
-        body: TabBarView(
-          controller: _tabController,
-          children: [
-            ListView.builder(
-                itemCount: 5,
-                itemBuilder: (context, index) => Text("tab items"),
-            ),
-            ListView.builder(
-              itemCount: 5,
-              itemBuilder: (context, index) => Text("tab items"),
-            ),
-          ],
-        ),
+        body: Consumer<RestaurantModel>(
+          builder: (context, restaurant, child) => TabBarView(
+            controller: _tabController,
+            children: getFoodInThisCategory(restaurant.menu),
+          ),
+        )
       )
     );
   }
