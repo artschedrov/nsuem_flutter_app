@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_app/components/curr_location.dart';
 import 'package:food_app/components/delivery_description.dart';
 import 'package:food_app/components/food_tab_bar.dart';
+import 'package:food_app/components/food_tile.dart';
 import 'package:food_app/components/menu_sidebar.dart';
 import 'package:food_app/models/food_model.dart';
 import 'package:food_app/models/restaurant_model.dart';
@@ -43,8 +44,11 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
           physics: const NeverScrollableScrollPhysics(),
           padding: EdgeInsets.zero,
           itemBuilder: (context, index) {
-            return ListTile(
-              title: Text(categoryMenu[index].name),
+            //получить еду
+            final foodModel = categoryMenu[index];
+            return FoodTile(
+                foodModel: foodModel,
+                onTap: () {}
             );
           },
       );

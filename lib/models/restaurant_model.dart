@@ -6,7 +6,7 @@ class RestaurantModel extends ChangeNotifier{
     FoodModel(
         name: "Чизбургер",
         description: "Сочная говядина, сыр чедар, помидоры, огурчики",
-        imgPath: "lib/images/burgers/burger.png",
+        imgPath: "lib/img/burgers/burgers.jpg",
         price: 350,
         category: FoodCategory.burgers,
         availableAddons: [
@@ -17,7 +17,7 @@ class RestaurantModel extends ChangeNotifier{
     FoodModel(
         name: "Пирог",
         description: "Сочная говядина, сыр чедар, помидоры, огурчики",
-        imgPath: "lib/images/burgers/burger.png",
+        imgPath: "lib/img/deserts/deserts.jpg",
         price: 350,
         category: FoodCategory.deserts,
         availableAddons: [
@@ -28,7 +28,7 @@ class RestaurantModel extends ChangeNotifier{
     FoodModel(
         name: "Лимонад",
         description: "Сочная говядина, сыр чедар, помидоры, огурчики",
-        imgPath: "lib/images/burgers/burger.png",
+        imgPath: "lib/img/drinks/drinks.jpg",
         price: 350,
         category: FoodCategory.drinks,
         availableAddons: [
@@ -39,7 +39,7 @@ class RestaurantModel extends ChangeNotifier{
     FoodModel(
         name: "Салат",
         description: "Сочная говядина, сыр чедар, помидоры, огурчики",
-        imgPath: "lib/images/burgers/burger.png",
+        imgPath: "lib/img/salads/salads.png",
         price: 350,
         category: FoodCategory.salads,
         availableAddons: [
