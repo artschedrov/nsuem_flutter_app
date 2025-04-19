@@ -6,6 +6,7 @@ import 'package:food_app/components/food_tile.dart';
 import 'package:food_app/components/menu_sidebar.dart';
 import 'package:food_app/models/food_model.dart';
 import 'package:food_app/models/restaurant_model.dart';
+import 'package:food_app/pages/food_page.dart';
 import 'package:provider/provider.dart';
 import '../components/sliver_bar.dart';
 
@@ -47,8 +48,13 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
             //получить еду
             final foodModel = categoryMenu[index];
             return FoodTile(
-                foodModel: foodModel,
-                onTap: () {}
+              foodModel: foodModel,
+              onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => FoodPage(food: foodModel)
+                  )
+              )
             );
           },
       );
