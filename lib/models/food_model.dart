@@ -18,11 +18,21 @@ class FoodModel {
 }
 
 enum FoodCategory {
-  burgers,
-  salads,
-  deserts,
-  drinks
+  burgers(1, description:"Бургеры"),
+  salads(1, description:"Салаты"),
+  deserts(1, description:"Десерты"),
+  drinks(1, description:"Напитки");
+
+  const FoodCategory(
+      int number, {
+        this.enabled = true,
+        required this.description,
+      }) : n = number;
+  final int n;
+  final bool enabled;
+  final String description;
 }
+
 
 class Addon {
   String name;

@@ -12,7 +12,7 @@ class FoodTabBar extends StatelessWidget {
   List<Tab> _buildCategoryTab() {
     return FoodCategory.values.map((category) {
       return Tab(
-        text: category.toString().split('.').last,
+        text: category.description.toString().split('.').last,
       );
     }).toList();
   }

@@ -32,7 +32,7 @@ class NewSliverBar extends StatelessWidget {
       ],
       backgroundColor: Theme.of(context).colorScheme.background,
       foregroundColor: Theme.of(context).colorScheme.inversePrimary,
-      title: const Text("Dinner"),
+      title: const Text("Ресторан"),
       flexibleSpace: FlexibleSpaceBar(
         background: Padding(
           padding: const EdgeInsets.only(bottom: 50.0),

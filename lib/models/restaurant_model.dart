@@ -17,6 +17,39 @@ class RestaurantModel extends ChangeNotifier{
         ]
     ),
     FoodModel(
+        name: "Чизбургер",
+        description: "Сочная говядина, сыр чедар, помидоры, огурчики",
+        imgPath: "lib/img/burgers/burgers.jpg",
+        price: 350,
+        category: FoodCategory.burgers,
+        availableAddons: [
+          Addon(name: "Больше сыра", price: 40),
+          Addon(name: "Бекон", price: 50)
+        ]
+    ),
+    FoodModel(
+        name: "Чизбургер",
+        description: "Сочная говядина, сыр чедар, помидоры, огурчики",
+        imgPath: "lib/img/burgers/burgers.jpg",
+        price: 350,
+        category: FoodCategory.burgers,
+        availableAddons: [
+          Addon(name: "Больше сыра", price: 40),
+          Addon(name: "Бекон", price: 50)
+        ]
+    ),
+    FoodModel(
+        name: "Чизбургер",
+        description: "Сочная говядина, сыр чедар, помидоры, огурчики",
+        imgPath: "lib/img/burgers/burgers.jpg",
+        price: 350,
+        category: FoodCategory.burgers,
+        availableAddons: [
+          Addon(name: "Больше сыра", price: 40),
+          Addon(name: "Бекон", price: 50)
+        ]
+    ),
+    FoodModel(
         name: "Пирог",
         description: "Сочная говядина, сыр чедар, помидоры, огурчики",
         imgPath: "lib/img/deserts/deserts.jpg",
@@ -33,6 +66,28 @@ class RestaurantModel extends ChangeNotifier{
         imgPath: "lib/img/drinks/drinks.jpg",
         price: 350,
         category: FoodCategory.drinks,
+        availableAddons: [
+          Addon(name: "Больше сыра", price: 40),
+          Addon(name: "Бекон", price: 50)
+        ]
+    ),
+    FoodModel(
+        name: "Салат",
+        description: "Сочная говядина, сыр чедар, помидоры, огурчики",
+        imgPath: "lib/img/salads/salads.png",
+        price: 350,
+        category: FoodCategory.salads,
+        availableAddons: [
+          Addon(name: "Больше сыра", price: 40),
+          Addon(name: "Бекон", price: 50)
+        ]
+    ),
+    FoodModel(
+        name: "Салат",
+        description: "Сочная говядина, сыр чедар, помидоры, огурчики",
+        imgPath: "lib/img/salads/salads.png",
+        price: 350,
+        category: FoodCategory.salads,
         availableAddons: [
           Addon(name: "Больше сыра", price: 40),
           Addon(name: "Бекон", price: 50)
