@@ -36,6 +36,7 @@ dependencies:
   provider: ^5.0.0
   extensions_pack: 2.4.7
   dart_extensions: 2.2.4
+  flutter_credit_card: 4.1.0
 
 
 dev_dependencies:

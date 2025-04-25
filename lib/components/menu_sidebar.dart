@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/components/menu_sidebar_tile.dart';
+import 'package:food_app/pages/delivery_progress_page.dart';
 
 import 'login_register_switcher.dart';
 
@@ -23,13 +24,24 @@ class MenuSidebar extends StatelessWidget {
             icon: Icons.home,
             onTap: () => Navigator.pop(context),
           ),
+          MenuSidebarTile(
+            text: "ТЕКУЩИЕ ЗАКАЗЫ",
+            icon: Icons.fastfood_outlined,
+            onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const DeliveryProgressPage()
+                )
+            ),
+          ),
           const Spacer(),
           MenuSidebarTile(
             text: "ВЫЙТИ",
             icon: Icons.logout,
             onTap: () => Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const LoginRegisterSwitcher(),
+              MaterialPageRoute(
+                builder: (context) => const LoginRegisterSwitcher(),
               ),
             ),
           ),

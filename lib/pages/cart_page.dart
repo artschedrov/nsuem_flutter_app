@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_app/components/cart_tile.dart';
 import 'package:food_app/components/my_button.dart';
 import 'package:food_app/models/restaurant_model.dart';
+import 'package:food_app/pages/payment_page.dart';
 import 'package:provider/provider.dart';
 
 class CartPage extends StatelessWidget {
@@ -15,7 +16,7 @@ class CartPage extends StatelessWidget {
 
         return Scaffold(
           appBar: AppBar(
-            title: Text("Заказ"),
+            title: Text("Корзина"),
             backgroundColor: Colors.transparent,
             foregroundColor: Theme.of(context).colorScheme.inversePrimary,
             actions: [
@@ -53,8 +54,15 @@ class CartPage extends StatelessWidget {
                     ],
                   ),
               ),
-              MyButton(text: "Перейти к оплате", onTap: () {}),
-              const SizedBox(height: 25)
+              MyButton(
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const PaymentPage(),
+                    ),
+                  ),
+                  text: "Перейти к оплате",
+              ),
+              const SizedBox(height: 30)
             ],
           )
         );
