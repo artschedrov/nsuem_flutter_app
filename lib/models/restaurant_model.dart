@@ -2,6 +2,7 @@ import 'package:extensions_pack/extensions_pack.dart';
 import 'package:flutter/material.dart';
 import 'package:food_app/models/cart_model.dart';
 import 'package:food_app/models/food_model.dart';
+import 'package:intl/intl.dart';
 
 class RestaurantModel extends ChangeNotifier{
   final List<FoodModel> _menu = [
@@ -163,6 +164,41 @@ class RestaurantModel extends ChangeNotifier{
   void clearCart() {
     _cart.clear();
     notifyListeners();
+  }
+
+  String displayCartPayment() {
+    final payment = StringBuffer();
+    payment.writeln("Здесь ваш чек");
+    payment.writeln();
+
+    String formatedDate = DateFormat("yyyy-MM-dd HH:mm:ss").format(DateTime.now());
+    payment.writeln(formatedDate);
+    payment.writeln();
+    payment.writeln("----------");
+
+    for (final cartItem in _cart) {
+      payment.writeln(
+        "${cartItem.quantity} x ${cartItem.food.name} - ${_formatPrice(cartItem.food.price)}"
+      );
+      if (cartItem.selectedAddons.isNotEmpty) {
+        payment.writeln("  Дополнения: ${_formatAddons(cartItem.selectedAddons)}");
+      }
+      payment.writeln();
+    }
+    payment.writeln("-------------");
+    payment.writeln();
+    payment.writeln("Всего позиций: ${getTotalItemCount()}");
+    payment.writeln("Итого: ${_formatPrice(getTotalPrice())}");
+
+    return payment.toString();
+  }
+
+  String _formatPrice(double price) {
+    return "${price.toStringAsFixed(2)}";
+  }
+
+  String _formatAddons(List<Addon> addons) {
+    return addons.map((addon) => "${addon.name} (${_formatPrice(addon.price)})").join(", ");
   }
 
 }
