@@ -1,11 +1,14 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:food_app/components/login_register_switcher.dart';
+import 'package:food_app/firebase_options.dart';
 import 'package:food_app/models/restaurant_model.dart';
+import 'package:food_app/service/auth/auth_gate.dart';
 import 'package:provider/provider.dart';
 import 'package:food_app/themes/theme_provider.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(
     MultiProvider(
       providers: [
@@ -24,7 +27,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const LoginRegisterSwitcher(),
+      home: const AuthGate(),
       theme: Provider.of<ThemeProvider>(context).themeData
     );
   }

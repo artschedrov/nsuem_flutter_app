@@ -37,7 +37,16 @@ dependencies:
   extensions_pack: 2.4.7
   dart_extensions: 2.2.4
   flutter_credit_card: 4.1.0
-  intl: 0.19.0
+  intl: ^0.19.0
+  dart_console: ^4.1.1
+  flutterfire_cli: ^1.2.0
+  interact: 2.2.0
+  firebase_core: 3.13.0
+  firebase_auth: 5.5.3
+
+dependency_overrides:
+  dart_console: ^1.1.2
+  intl: ^0.18.0
 
 
 dev_dependencies:

@@ -2,11 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:food_app/components/menu_sidebar_tile.dart';
 import 'package:food_app/pages/delivery_progress_page.dart';
 import 'package:food_app/pages/home_page.dart';
+import 'package:food_app/service/auth/auth_service.dart';
 
 import 'login_register_switcher.dart';
 
 class MenuSidebar extends StatelessWidget {
   const MenuSidebar({super.key});
+
+  void logOut() async {
+    final _authService = AuthService();
+    _authService.signOut();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,12 +51,10 @@ class MenuSidebar extends StatelessWidget {
           MenuSidebarTile(
             text: "ВЫЙТИ",
             icon: Icons.logout,
-            onTap: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const LoginRegisterSwitcher(),
-              ),
-            ),
+            onTap: () {
+              logOut();
+              Navigator.pop(context);
+            }
           ),
           const SizedBox(height: 25)
         ],

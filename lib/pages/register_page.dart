@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/service/auth/auth_service.dart';
 
 
 import '../components/my_button.dart';
@@ -16,6 +17,25 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController cofirmPasswordController = TextEditingController();
+
+  void register() async {
+    final _authService = AuthService();
+
+    if(passwordController.text == cofirmPasswordController.text) {
+      try {
+        await _authService.signUpWithEmailPassword(
+            emailController.text,
+            passwordController.text
+        );
+      } catch (e) {
+        showDialog(context: context, builder: (context) => AlertDialog(
+          title: Text(e.toString()),
+          )
+        );
+        
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +73,7 @@ class _RegisterPageState extends State<RegisterPage> {
             obscureText: true,
           ),
           const SizedBox(height: 25,),
-          MyButton(text: "Зарегистрироваться", onTap: () {}),
+          MyButton(text: "Зарегистрироваться", onTap: register),
           const SizedBox(height: 25),
 
           Row(
