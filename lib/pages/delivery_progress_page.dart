@@ -65,7 +65,7 @@ class DeliveryProgressPage extends StatelessWidget {
               )
             ],
           ),
-          const Spacer(),
+          // const Spacer(),
           Row(
             children: [
               Container(

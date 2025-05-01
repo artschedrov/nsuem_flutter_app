@@ -13,7 +13,6 @@ class Payment extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text("Спасибо за заказ"),
             const SizedBox(height: 25),
             Container(
               decoration: BoxDecoration(

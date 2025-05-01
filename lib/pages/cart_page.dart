@@ -55,11 +55,20 @@ class CartPage extends StatelessWidget {
                   ),
               ),
               MyButton(
-                  onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const PaymentPage(),
-                    ),
-                  ),
+                  onTap: () {
+                    if(userCart.isEmpty) {
+                      showDialog(context: context, builder: (context) => AlertDialog(
+                        title: Text("Вы ничего не заказали"),
+                      )
+                      );
+                    } else {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const PaymentPage(),
+                        ),
+                      );
+                    }
+                  },
                   text: "Перейти к оплате",
               ),
               const SizedBox(height: 30)
