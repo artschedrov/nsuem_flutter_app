@@ -58,7 +58,7 @@ class _FoodPageState extends State<FoodPage> {
                     ),
                   ),
                   Text(
-                    widget.food.price.toString() + " Р.",
+                    widget.food.price.toString() + " ₽",
                     style: TextStyle(
                     fontSize: 16,
                     color: Theme.of(context).colorScheme.primary
@@ -71,6 +71,7 @@ class _FoodPageState extends State<FoodPage> {
                   const SizedBox(height: 10),
                   Divider(color: Theme.of(context).colorScheme.secondary,),
                   const SizedBox(height: 10),
+
                   Text(
                     "Дополнения",
                     style: TextStyle(
@@ -96,7 +97,7 @@ class _FoodPageState extends State<FoodPage> {
                       Addon addon = widget.food.availableAddons[index];
                         return CheckboxListTile(
                           title: Text(addon.name),
-                          subtitle: Text(addon.price.toString() + " P."),
+                          subtitle: Text(addon.price.toString() + " ₽"),
                           value: widget.selectedAddon[addon],
                           onChanged: (bool? value) {
                             setState(() {

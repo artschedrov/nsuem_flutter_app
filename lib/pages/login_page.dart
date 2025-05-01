@@ -40,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
         children: [
           const SizedBox(height: 25),
           Text(
-            "Food order app",
+            "СуперФуд заказ еды",
             style: TextStyle(
               fontSize: 16,
               color: Theme.of(context).colorScheme.inversePrimary

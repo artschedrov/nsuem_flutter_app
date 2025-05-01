@@ -7,10 +7,32 @@ import 'package:intl/intl.dart';
 class RestaurantModel extends ChangeNotifier{
   final List<FoodModel> _menu = [
     FoodModel(
-        name: "Чизбургер",
-        description: "Сочная говядина, сыр чедар, помидоры, огурчики",
-        imgPath: "lib/img/burgers/burgers.jpg",
-        price: 350,
+        name: "Габургер",
+        description: "Приготовленный на огне бифштекс из 100% говядины с хрустящим маринованным огурчиком, рубленым луком, горчицей и кетчупом в подрумяненной булочке с кунжутом.",
+        imgPath: "lib/img/burgers/b1.png",
+        price: 96,
+        category: FoodCategory.burgers,
+        availableAddons: [
+          Addon(name: "Больше сыра", price: 40),
+          Addon(name: "Бекон", price: 50)
+        ]
+    ),
+    FoodModel(
+        name: "Гранд Чиз Двойной",
+        description: "Теперь ещё больше соуса! Под кетчупом и горчицей целых два бифштекса по-домашнему из фирменной говядины с добавлением отборной курочки, сыр Чеддер, рубленый лучок и маринованные огурчики на румяной булочке с кунжутом. Это точно сочно!",
+        imgPath: "lib/img/burgers/b3.png",
+        price: 329,
+        category: FoodCategory.burgers,
+        availableAddons: [
+          Addon(name: "Больше сыра", price: 40),
+          Addon(name: "Бекон", price: 50)
+        ]
+    ),
+    FoodModel(
+        name: "Чикен Тар Тар",
+        description: "Мы приготовили что-то особенное! Новый соус Тартар подчеркивает вкус сочной курочки с сыром Пармезан! А ещё внутри свежие томаты, салат Айсберг, рубленый лучок — на картофельной булочке с кунжутом.",
+        imgPath: "lib/img/burgers/b4.png",
+        price: 229,
         category: FoodCategory.burgers,
         availableAddons: [
           Addon(name: "Больше сыра", price: 40),
@@ -19,9 +41,9 @@ class RestaurantModel extends ChangeNotifier{
     ),
     FoodModel(
         name: "Чизбургер",
-        description: "Сочная говядина, сыр чедар, помидоры, огурчики",
-        imgPath: "lib/img/burgers/burgers.jpg",
-        price: 350,
+        description: "Фирменный приготовленный на огне бифштекс из 100% говядины с ломтиком слегка расплавленного сыра, хрустящим маринованным огурчиком, луком, горчицей и кетчупом, которые подаются в подрумяненной булочке с кунжутом.",
+        imgPath: "lib/img/burgers/b2.png",
+        price: 99,
         category: FoodCategory.burgers,
         availableAddons: [
           Addon(name: "Больше сыра", price: 40),
@@ -29,82 +51,60 @@ class RestaurantModel extends ChangeNotifier{
         ]
     ),
     FoodModel(
-        name: "Чизбургер",
-        description: "Сочная говядина, сыр чедар, помидоры, огурчики",
-        imgPath: "lib/img/burgers/burgers.jpg",
-        price: 350,
-        category: FoodCategory.burgers,
-        availableAddons: [
-          Addon(name: "Больше сыра", price: 40),
-          Addon(name: "Бекон", price: 50)
-        ]
-    ),
-    FoodModel(
-        name: "Чизбургер",
-        description: "Сочная говядина, сыр чедар, помидоры, огурчики",
-        imgPath: "lib/img/burgers/burgers.jpg",
-        price: 350,
-        category: FoodCategory.burgers,
-        availableAddons: [
-          Addon(name: "Больше сыра", price: 40),
-          Addon(name: "Бекон", price: 50)
-        ]
-    ),
-    FoodModel(
-        name: "Пирог",
-        description: "Сочная говядина, сыр чедар, помидоры, огурчики",
-        imgPath: "lib/img/deserts/deserts.jpg",
-        price: 350,
+        name: "Пирожок с вишней",
+        description: "Горячий хрустящий пирожок с начинкой из ароматной спелой вишни.",
+        imgPath: "lib/img/deserts/dis1.png",
+        price: 124,
         category: FoodCategory.deserts,
         availableAddons: [
-          Addon(name: "Больше сыра", price: 40),
-          Addon(name: "Бекон", price: 50)
         ]
     ),
     FoodModel(
-        name: "Лимонад",
-        description: "Сочная говядина, сыр чедар, помидоры, огурчики",
-        imgPath: "lib/img/drinks/drinks.jpg",
-        price: 350,
+        name: "Айс Твист",
+        description: "Шоколадный топпинг и нежное взбитое мороженое с хрустящими кусочками песочного печенья. Айс, как вкусно!",
+        imgPath: "lib/img/deserts/dis2.png",
+        price: 189,
+        category: FoodCategory.deserts,
+        availableAddons: [
+          Addon(name: "Шоколадная крошка", price: 40),
+        ]
+    ),
+    FoodModel(
+        name: "Вода Аква Минерале",
+        description: "Aqua Minerale® — питьевая вода с удивительно свежим, приятным и мягким вкусом.",
+        imgPath: "lib/img/drinks/dr1.png",
+        price: 134,
         category: FoodCategory.drinks,
         availableAddons: [
-          Addon(name: "Больше сыра", price: 40),
-          Addon(name: "Бекон", price: 50)
         ]
     ),
     FoodModel(
-        name: "Салат",
-        description: "Сочная говядина, сыр чедар, помидоры, огурчики",
-        imgPath: "lib/img/salads/salads.png",
-        price: 350,
-        category: FoodCategory.salads,
+        name: "Фрустайл Лимон Лайм",
+        description: "Frustyle - это необычный газированный напиток или лимонад. Фрустайл со вкусом Лимон Лайм - это цитрусовый прозрачный лимонад с освежающей волной из миллиона пузырьков.",
+        imgPath: "lib/img/drinks/dr2.png",
+        price: 149,
+        category: FoodCategory.drinks,
         availableAddons: [
-          Addon(name: "Больше сыра", price: 40),
-          Addon(name: "Бекон", price: 50)
         ]
     ),
     FoodModel(
-        name: "Салат",
-        description: "Сочная говядина, сыр чедар, помидоры, огурчики",
-        imgPath: "lib/img/salads/salads.png",
-        price: 350,
+        name: "Салат Цезарь",
+        description: "Традиционный рецепт салата «Цезарь» с листьями зеленого салата, чесночными сухариками, сыром Пармезан и хрустящей курочкой под нежным соусом Цезарь.",
+        imgPath: "lib/img/salads/s1.png",
+        price: 380,
         category: FoodCategory.salads,
         availableAddons: [
-          Addon(name: "Больше сыра", price: 40),
-          Addon(name: "Бекон", price: 50)
         ]
     ),
     FoodModel(
-        name: "Салат",
-        description: "Сочная говядина, сыр чедар, помидоры, огурчики",
-        imgPath: "lib/img/salads/salads.png",
-        price: 350,
+        name: "Салат Цезарь с креветками",
+        description: "Легкий салат Цезарь с листьями салата айсберг, нежными королевскими креветками в легкой хрустящей панировке, сыром пармезан и чесночными сухариками под нежным соусом Цезарь. Внимание! Блюдо содержит аллергены – морепродукты.",
+        imgPath: "lib/img/salads/s2.png",
+        price: 405,
         category: FoodCategory.salads,
         availableAddons: [
-          Addon(name: "Больше сыра", price: 40),
-          Addon(name: "Бекон", price: 50)
         ]
-    )
+    ),
   ];
 
   List<FoodModel> get menu => _menu;
