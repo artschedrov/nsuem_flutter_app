@@ -1,16 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/components/payment.dart';
+import 'package:food_app/models/restaurant_model.dart';
+import 'package:provider/provider.dart';
 import '../components/menu_sidebar.dart';
+import '../service/database/firestore.dart';
 
-class DeliveryProgressPage extends StatelessWidget {
+class DeliveryProgressPage extends StatefulWidget {
   const DeliveryProgressPage({super.key});
+
+  @override
+  State<DeliveryProgressPage> createState() => _DeliveryProgressPageState();
+}
+
+class _DeliveryProgressPageState extends State<DeliveryProgressPage> {
+
+  FireStoreService fdb = FireStoreService();
+
+  @override
+  void initState() {
+    super.initState();
+    String order = context.read<RestaurantModel>().displayCartPayment();
+    fdb.saveOrderToDatabase(order);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: MenuSidebar(),
       appBar: AppBar(
-        title: Text("Текущие заказы"),
         backgroundColor: Colors.transparent,
       ),
       body: Column(
